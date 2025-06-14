@@ -1,0 +1,10 @@
+mode: Mainline
+branches:
+  main:
+    regex: ^main$
+    increment: minor
+    is-release-branch: true
+  develop:
+    regex: ^develop$
+    increment: patch
+    source-branches: ['main']

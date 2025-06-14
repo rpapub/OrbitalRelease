@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>OrbitalRelease</id>
+    <version>$version$</version>
+    <authors>Christian Prior-Mamulyan</authors>
+    <description>⌘ CI/CD reference flows for developer feedback and governance enforcement.</description>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+  </metadata>
+  <files>
+    <file src="**\*" target="tools\OrbitalRelease" />
+    <file src="readme.md" target="" />
+  </files>
+</package>

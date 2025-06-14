@@ -1,0 +1,29 @@
+# PowerShell module output
+*.nupkg
+*.log
+*.ps1~
+*.psm1~
+
+# GitVersion
+GitVersionCache/
+
+# dotnet tools
+.dotnet/
+.tool-manifest
+*.lock.json
+
+# VSCode
+.vscode/
+
+# Test and build output
+TestResults/
+*.Tests.ps1.xml
+*.coverage*
+output/
+dist/
+bin/
+obj/
+
+# OS-specific
+*.DS_Store
+Thumbs.db
