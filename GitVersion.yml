@@ -1,10 +1,22 @@
 mode: Mainline
+
+commit-message-incrementing: Disabled
+
 branches:
   main:
     regex: ^main$
-    increment: minor
+    increment: Patch
     is-release-branch: true
+    prevent-increment-of-merged-branch-version: true
+    track-merge-target: false
+    tracks-release-branches: false
+    is-mainline: true
   develop:
     regex: ^develop$
-    increment: patch
+    increment: Patch
+    is-release-branch: false
     source-branches: ['main']
+    is-mainline: true
+
+ignore:
+  sha: []
