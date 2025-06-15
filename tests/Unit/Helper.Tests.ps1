@@ -1,6 +1,6 @@
 Describe "Get-Timestamp" {
     BeforeAll {
-    $helperPath = Join-Path $PSScriptRoot '../../src/OrbitalRelease/Private/Helper.ps1'
+    $helperPath = Join-Path $PSScriptRoot '../../src/OrbitalRelease/Functions/Helper.ps1'
     . $helperPath
     }
 

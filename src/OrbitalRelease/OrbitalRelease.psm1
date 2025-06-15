@@ -1,19 +1,19 @@
 # OrbitalRelease module root
 
-Write-Verbose "Loading Public functions"
-. $PSScriptRoot/Public/Invoke-DevCheck.ps1
+Write-Verbose "Importing Classes"
+Get-ChildItem -Path "$PSScriptRoot/Classes" -Filter *.ps1 | ForEach-Object { . $_.FullName }
 
-Write-Verbose "Loading Private helpers"
-. $PSScriptRoot/Private/Helper.ps1
+Write-Verbose "Importing Data scripts"
+Get-ChildItem -Path "$PSScriptRoot/Data" -Filter *.ps1 | ForEach-Object { . $_.FullName }
 
-Export-ModuleMember -Function Invoke-DevCheck
+Write-Verbose "Importing Functions"
+Get-ChildItem -Path "$PSScriptRoot/Functions" -Recurse -Filter *.ps1 | ForEach-Object { . $_.FullName }
 
-# Import private class (do NOT export)
-. $PSScriptRoot/Private/LocalFileConfigStrategy.ps1
+# Export all public functions
+$publicFunctions = Get-ChildItem -Path "$PSScriptRoot/Functions" -Recurse -Filter *.ps1 |
+    ForEach-Object {
+        Select-String -Path $_.FullName -Pattern 'function\s+([^\s{(]+)' |
+            ForEach-Object { $_.Matches[0].Groups[1].Value }
+    }
 
-# Import public API
-. $PSScriptRoot/Public/ConfigLoader.ps1
-
-# Export only public function(s)
-Export-ModuleMember -Function Invoke-ConfigLoad
-#Export-ModuleMember -TypeName LocalFileConfigStrategy
+Export-ModuleMember -Function $publicFunctions

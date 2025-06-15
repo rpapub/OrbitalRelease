@@ -1,6 +1,6 @@
 # src/OrbitalRelease/Public/ConfigLoader.ps1
 
-. $PSScriptRoot/../Private/DefaultConfig.ps1
+. $PSScriptRoot/../../Data/DefaultConfig.ps1
 
 function Invoke-ConfigLoad {
     param (
