@@ -128,10 +128,15 @@ Versioning is enforced during packaging and publishing.
 
 ## 10. Folder and File Naming
 
-* Use lowercase names with dashes (`setup.ps1`, `run-analyzer.ps1`)
-* Public functions → `Public/Invoke-*.ps1`
-* Private helpers → `Private/*.ps1`
-* Module root: `OrbitalRelease.psm1`, `OrbitalRelease.psd1`
+* Use lowercase names with dashes for simple scripts (e.g., `setup.ps1`, `run-analyzer.ps1`)
+* Public command scripts follow PowerShell verb-noun convention with dash, placed in `Public/` folder  
+  - Example: `Public/Invoke-DevCheck.ps1`
+* Private helpers and classes use PascalCase without dashes, placed in `Private/` folder  
+  - Example: `Private/LocalFileConfigStrategy.ps1`
+* Module root files are PascalCase without dashes:  
+  - `OrbitalRelease.psm1`, `OrbitalRelease.psd1`
+* Test files named after the functionality they test, mirroring subject casing, inside `tests/OrbitalRelease.Tests/`
+
 
 ## 11. License and Attribution
 

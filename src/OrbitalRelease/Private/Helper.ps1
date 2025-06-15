@@ -1,6 +1,3 @@
 function Get-Timestamp {
-  [CmdletBinding()]
-  param ()
-
-  return (Get-Date).ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+  return (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ", [System.Globalization.CultureInfo]::InvariantCulture)
 }
